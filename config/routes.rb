@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  scope :api, defaults: { format: :json } do
-    devise_for :users
-  end  
+ 
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  get 'items/' => 'items#index'
   # Defines the root path route ("/")
   # root "articles#index"
 end
