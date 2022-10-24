@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many  :shopping_lists, dependent: :destroy
+  has_many  :items, dependent: :destroy
   
   devise :database_authenticatable, :jwt_authenticatable, :registerable,
   jwt_revocation_strategy: JwtDenylist
