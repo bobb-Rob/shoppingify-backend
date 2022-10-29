@@ -3,15 +3,16 @@ class Api::V1::ItemsController < ApiController
 
   def index
     @items = current_user.items
-    render json: { message: "If you see this, you're in!", items: @items }
+    render json: { code: 200, message: "If you see this, you're in!", items: @items }
   end
 
   def create
     @item = current_user.items.create!(item_params)
     if @item.save
-      render json: { message: "Item created!", item: @item }, status: :created
+      render json: { code: 200, message: "Item created!", item: @item }, status: :created
     else
-      render json: { 
+      render json: {
+        code: 422,
         message: "Item not created", 
         item: @item.errors.full_messages
       }, 

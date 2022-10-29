@@ -50,6 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_23_160456) do
 
   create_table "shopping_lists", force: :cascade do |t|
     t.string "name"
+    t.boolean "is_completed", default: false, null: false
+    t.boolean "is_cancelled", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -65,8 +67,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_23_160456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "first_name"
+    t.string "last_name"
     t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name", unique: true
+    t.index ["last_name"], name: "index_users_on_last_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
