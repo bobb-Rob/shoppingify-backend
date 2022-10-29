@@ -15,8 +15,7 @@ class Api::V1::ItemsController < ApiController
         code: 422,
         message: "Item not created", 
         item: @item.errors.full_messages
-      }, 
-        status: :unprocessable_entity
+      }, status: :unprocessable_entity
     end
   end
 

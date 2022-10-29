@@ -11,11 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def register_success
-    render json: { 
-      status: { code: 200, 
-        message: 'Signed up successfully', 
+    render json: {
+      status: { code: 200,
+        message: 'Signed up successfully',
         data: resource }
-    }, status: :ok     
+    }, status: :ok
   end
 
   def register_failed
